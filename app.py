@@ -84,10 +84,10 @@ if submitted:
         probabilities = model.predict_proba(X_input)[0]
         if prediction == 1:
             st.error("⚠️ Heart Disease Detected")
-        st.markdown(f"**Probability of Heart Disease:** `{probabilities[1] * 100:.2f}%`")
+            st.markdown(f"**Probability of Heart Disease:** `{probabilities[1] * 100:.2f}%`")
         else:
             st.success("✅ No Heart Disease Detected")
-        st.markdown(f"**Probability of No Heart Disease:** `{probabilities[0] * 100:.2f}%`")
+            st.markdown(f"**Probability of No Heart Disease:** `{probabilities[0] * 100:.2f}%`")
 
         # Show most influential feature
         top_feat = perm_importances.sort_values(ascending=False).index[0]
