@@ -36,19 +36,8 @@ model = joblib.load("best_model.pkl")
 feature_names = joblib.load("feature_names.pkl")
 scaler = joblib.load("scaler.pkl")
 perm_importances = joblib.load("permutation_importance.pkl")
-
-# 📊 Load model evaluation metrics (rf_metrics.json)
-try:
-    with open("rf_metrics.json") as f:
-        metrics = json.load(f)
-except FileNotFoundError:
-    metrics = {
-        "accuracy": 0.91,
-        "f1_score": 0.91,
-        "roc_auc": 0.95,
-        "precision": 0.90,
-        "recall": 0.91
-    }
+with open("rf_metrics.json") as f:
+    metrics = json.load(f)
 
 # 📌 Sidebar
 st.sidebar.subheader("📈 Model Metrics")
