@@ -80,7 +80,7 @@ if submitted:
     try:
         input_values = [user_input[feat] for feat in feature_names]
         X_input = scaler.transform(np.array(input_values).reshape(1, -1))
-                prediction = model.predict(X_input)[0]
+        prediction = model.predict(X_input)[0]
         probabilities = model.predict_proba(X_input)[0]
         if prediction == 1:
             st.error("⚠️ Heart Disease Detected")
