@@ -36,12 +36,18 @@ feature_names = joblib.load("feature_names.pkl")
 scaler = joblib.load("scaler.pkl")
 perm_importances = joblib.load("permutation_importance.pkl")
 
+with open("rf_metrics.json") as f:
+    metrics = json.load(f)
+
 # Title
 st.title("💓 Heart Disease Risk Estimator")
 
 # Sidebar with evaluation
 st.sidebar.subheader("📈 Model Metrics")
 st.sidebar.write("Model: **Random Forest (Tuned)**")
+st.sidebar.subheader("📊 Evaluation Metrics")
+st.sidebar.metric("Accuracy", f"{metrics['accuracy']:.2%}")
+st.sidebar.metric("F1 Score", f"{metrics['f1_score']:.2%}")
 st.sidebar.write("Top 3 Features:")
 top_3 = perm_importances.sort_values(ascending=False).head(3)
 for feat, score in top_3.items():
