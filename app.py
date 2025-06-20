@@ -60,6 +60,18 @@ top_3 = perm_importances.sort_values(ascending=False).head(3)
 for feat, score in top_3.items():
     st.sidebar.write(f"• {feat}: {score:.4f}")
 
+# Optional: To style the sidebar, use custom CSS (Streamlit does not support sidebar color directly)
+st.markdown(
+    """
+    <style>
+    [data-testid="stSidebar"] {
+        background-color: #c74a69;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
 # Title
 st.title("💓 Heart Disease Risk Estimator")
 
