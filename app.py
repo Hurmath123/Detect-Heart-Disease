@@ -43,8 +43,8 @@ try:
         metrics = json.load(f)
 except FileNotFoundError:
     metrics = {
-        "accuracy": 0.91,
-        "f1_score": 0.91,
+    "accuracy": 0.9495798319327731,
+    "f1_score": 0.9545454545454546,
     }
 
 # 📌 Sidebar
